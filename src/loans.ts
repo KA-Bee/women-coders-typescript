@@ -1,6 +1,6 @@
 // Borrowing and returning books.
 import type { Catalogue } from "./catalogue";
-import { lateFee } from "./fees";
+import { discountedLateFee } from "./fees";
 import { canBorrow, type Member } from "./members";
 
 export class LoanError extends Error {}
@@ -51,7 +51,7 @@ export function processReturn(catalogue: Catalogue, member: Member, bookId: stri
     const l = member.loans.filter((x) => x.bookId === bookId)[0];
     const d = daysBetween(l.borrowedAt, when) - 14 + 1;
     if (d > 0) {
-      fee = lateFee(d);
+      fee = discountedLateFee(d, member);
       member.lateReturns += 1;
     }
     l.returnedAt = when;
