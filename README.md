@@ -23,6 +23,19 @@ npm test
 
 Try `npm run demo` for a quick tour.
 
+## Explore the web desk
+
+Start the React checkout desk locally:
+
+```bash
+npm run dev
+```
+
+Open the local URL printed by Vite. Search the shelves, switch between readers,
+borrow or return books, and join waitlists. The web desk is a frontend prototype:
+its checkout and waitlist changes live in browser memory and reset on refresh.
+Run `npm run build` to type-check and create a production build.
+
 ## What's in the code
 
 | File | What it does |
